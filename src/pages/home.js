@@ -112,7 +112,22 @@ const Home = () => {
 
     const predict = async () => {
         try{
-            const result = await axios.get(process.env.APIURL,{
+            
+            const inputArray = [input1,input2,input3,input4,input5,input6,input7,input8,input9,input10,input11,input12,input13,input14,input15,input16,input17,input18,input19,input20,input21,input22,input23,input24]
+            const newArray = []
+            inputArray.map((input)=>{
+                newArray.push({
+                    program : input.program ?? 242,
+                    fat_rate : input.fat_rate ?? 0,
+                    weight : input.weight ?? 0,
+                    squat : input.squat ?? 0,
+                    deadlift : input.deadlift ?? 0,
+                    benchpress : input.benchpress ?? 0
+                })
+            })
+
+            console.log(newArray)
+            const result = await axios.post(process.env.APIURL,{
                 recordFixed : {
                     sex : parseInt(sex),
                     age : parseInt(age),
@@ -120,7 +135,7 @@ const Home = () => {
                     arm_length : armLength,
                     leg_length : legLength
                 },
-                recordWeekly :[input1,input2,input3,input4,input5,input6,input7,input8,input9,input10,input11,input12,input13,input14,input15,input16,input17,input18,input19,input20,input21,input22,input23,input24]
+                recordWeekly :newArray
             })
             console.log(result)
         }catch(e){
@@ -236,14 +251,15 @@ const Home = () => {
                             <ScheduleItem index={24} data={input24} handler={setInput24}/>
                             <div style={{height : 30}}/>
                             <ButtonContainer>
-                                <StartButton onClick={()=>{
+                                <StartButton onClick={async ()=>{
                                     swiperRef.current.slidePrev()
                                 }}>
                                     Back
                                 </StartButton>
                                 <div style={{width : 8}}/>
-                                <StartButton onClick={()=>{
+                                <StartButton onClick={async ()=>{
                                     swiperRef.current.slideNext()
+                                    await predict()
                                 }}>
                                     Start
                                 </StartButton>
