@@ -112,7 +112,7 @@ const Home = () => {
 
     const predict = async () => {
         try{
-            const result = await axios.get(process.env.APIURL,{
+            const result = await axios.post(process.env.APIURL,{
                 recordFixed : {
                     sex : parseInt(sex),
                     age : parseInt(age),
@@ -242,8 +242,9 @@ const Home = () => {
                                     Back
                                 </StartButton>
                                 <div style={{width : 8}}/>
-                                <StartButton onClick={()=>{
+                                <StartButton onClick={async()=>{
                                     swiperRef.current.slideNext()
+                                    await predict()
                                 }}>
                                     Start
                                 </StartButton>
