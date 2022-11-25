@@ -72,11 +72,11 @@ const ScheduleItem = (props) => {
                         <MenuItem disabled value="">프로그램 선택</MenuItem>
                         {program_option.map((data,index)=>{
                             return <MenuItem value={()=>{
-                                if(data === '기타(etc)'){
-                                    return 242
-                                }else{
+                                //if(data === '기타(etc)'){
+                                 //   return 242
+                                //}else{
                                     return index
-                                }
+                                //}
                             }}>
                                 {data}
                             </MenuItem>
