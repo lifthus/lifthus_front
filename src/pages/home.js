@@ -119,7 +119,7 @@ const Home = () => {
             const newArray = []
             inputArray.map((input)=>{
                 newArray.push({
-                    program : input.program ?? 242,
+                    program : input.program ?? 13,
                     fat_rate : input.fat_rate ?? 0,
                     weight : input.weight ?? 0,
                     squat : input.squat ?? 0,

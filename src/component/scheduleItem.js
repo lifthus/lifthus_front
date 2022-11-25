@@ -16,7 +16,7 @@ const program_option = [
     'Intermediate Powerlifting Programs',
     'Madcow 5x5 Program',
     'General 5x5 Program',
-    '기타(etc)' // 기타는 index 242로 설정 [ 주의 ]
+    '기타(etc)' // 기타는 index 242로 설정 [ 주의 ] !!!아님 XXX 그냥 인덱스로!!!
 ]
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
